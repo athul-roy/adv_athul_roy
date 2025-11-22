@@ -174,6 +174,7 @@ p {
   padding: 0.35rem 0.6rem;
   font-size: 1rem;
   color: var(--text-on-dark);
+  cursor: pointer;
 }
 
 .nav-links {
@@ -233,6 +234,7 @@ p {
   inset: 0;
   pointer-events: none;
   z-index: -3;
+  will-change: transform;
 }
 
 .hero-bg-main {
@@ -339,7 +341,7 @@ p {
   color: var(--text-muted-dark);
 }
 
-/* Portrait (B1: sharp silhouette + gold edge) */
+/* Portrait */
 
 .hero-visual {
   display: flex;
@@ -352,18 +354,15 @@ p {
   max-width: 76vw;
   aspect-ratio: 3 / 4;
   overflow: hidden;
-
   border-radius: 18px;
   border: 1px solid rgba(212, 174, 100, 0.9);
   background:
     radial-gradient(circle at 20% 0, rgba(212, 174, 100, 0.2), transparent 60%),
     radial-gradient(circle at 80% 20%, rgba(22, 65, 49, 0.6), transparent 70%),
     #05050a;
-
   box-shadow:
     0 26px 70px rgba(0, 0, 0, 0.95),
     0 0 0 1px rgba(0, 0, 0, 0.6);
-
   transform: translate3d(0, 0, 0);
   will-change: transform, box-shadow, border-color;
   animation: heroGlowPulse 7s ease-in-out infinite alternate;
@@ -469,6 +468,7 @@ p {
   filter: grayscale(35%) contrast(1.1) brightness(0.7);
   transform: translateY(0);
   transition: transform 0.25s linear;
+  will-change: transform;
 }
 
 .strip-overlay {
@@ -505,165 +505,62 @@ p {
   border: 1px solid rgba(209, 192, 159, 0.4);
 }
 
-/* Contact */
+/* CONTACT SECTION */
 
-.contact-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-  gap: 2rem;
-  margin-top: 1.5rem;
+.contact-section {
+  background: #f7f5ef;
+  padding: 5rem 2rem;
+  text-align: center;
+  color: #2c2c2c;
 }
 
-.contact-form {
-  background: var(--panel-light);
-  border-radius: var(--radius-md);
-  padding: 1.3rem 1.1rem;
-  border: 1px solid var(--border-soft-light);
-  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.08);
+.section-title {
+  font-size: 1.6rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
-.field {
-  margin-bottom: 0.9rem;
+.contact-subtitle {
+  margin-top: 0.6rem;
+  font-size: 0.95rem;
+  color: #7e7a84;
 }
 
-label {
-  display: block;
-  font-size: 0.8rem;
-  margin-bottom: 0.25rem;
-  color: #746f7c;
-}
-
-input,
-textarea {
+.contact-map-card {
   width: 100%;
-  border-radius: 7px;
-  border: 1px solid #d8cdbb;
-  padding: 0.5rem 0.55rem;
-  font-family: inherit;
-  font-size: 0.9rem;
-  background: #fdfaf7;
-  color: #242128;
-  outline: none;
-  transition: border-color 0.2s ease-out, box-shadow 0.2s ease-out,
-    background 0.2s ease-out;
-}
-
-input:focus,
-textarea:focus {
-  border-color: var(--accent-strong);
-  box-shadow: 0 0 0 1px rgba(212, 174, 100, 0.35);
+  max-width: 800px;
+  margin: 2rem auto;
+  border-radius: 22px;
+  overflow: hidden;
   background: #ffffff;
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.15);
 }
 
-.btn-primary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.6rem 1.4rem;
-  border-radius: 999px;
-  border: none;
-  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
-  color: #22170a;
-  font-size: 0.9rem;
-  cursor: pointer;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
-  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
-}
-
-.btn-primary:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 24px 52px rgba(0, 0, 0, 0.22);
-}
-
-.full-width {
+.contact-map {
   width: 100%;
-}
-
-.form-note {
-  font-size: 0.78rem;
-  color: #8a848f;
+  height: 350px;
+  border: none;
 }
 
 .contact-details {
-  font-size: 0.92rem;
-}
-
-/* Map card */
-
-.map-card {
-  margin-top: 2.5rem;
-}
-
-.map-card-inner {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
-  gap: 1.6rem;
-  align-items: stretch;
-  padding: 1.2rem 1.1rem;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--border-soft-light);
-  background: linear-gradient(135deg, #fdf8f0, #f7efe4);
-  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.08);
+  gap: 3rem;
+  margin-top: 2rem;
+  font-size: 0.96rem;
 }
 
-.map-info h3 {
-  margin-bottom: 0.5rem;
+.contact-details h3 {
+  color: #b08a41;
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
 }
 
-.map-link {
-  display: inline-flex;
-  align-items: center;
-  margin-top: 0.6rem;
-  font-size: 0.83rem;
-  text-decoration: none;
-  color: #3b3223;
-  border-radius: 999px;
-  padding: 0.35rem 0.9rem;
-  border: 1px solid rgba(172, 148, 101, 0.5);
-  background: rgba(255, 255, 255, 0.85);
-  transition: background 0.2s ease-out, border-color 0.2s ease-out,
-    transform 0.2s ease-out, box-shadow 0.2s ease-out;
-}
-
-.map-link:hover {
-  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
-  color: #20140a;
-  border-color: transparent;
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.15);
-  transform: translateY(-1px);
-}
-
-.map-mini {
-  flex: 0 0 220px;
-  border-radius: 14px;
-  background: linear-gradient(135deg, #d3b88a, #f2dfb8);
-  position: relative;
-  overflow: hidden;
-}
-
-.map-mini-grid {
-  position: absolute;
-  inset: 0;
-  background-image: linear-gradient(
-      to right,
-      rgba(255, 255, 255, 0.16) 1px,
-      transparent 1px
-    ),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.16) 1px, transparent 1px);
-  background-size: 20px 20px;
-  opacity: 0.6;
-}
-
-.map-marker {
-  position: absolute;
-  width: 18px;
-  height: 18px;
-  border-radius: 999px;
-  background: #e53935;
-  border: 3px solid #ffffff;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-  left: 55%;
-  top: 40%;
+.contact-details p {
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0.2rem 0;
 }
 
 /* FOOTER */
@@ -769,19 +666,6 @@ textarea:focus {
     padding-top: 5.4rem;
     min-height: 90vh;
   }
-
-  .contact-layout {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .map-card-inner {
-    flex-direction: column;
-  }
-
-  .map-mini {
-    flex: none;
-    height: 160px;
-  }
 }
 
 @media (max-width: 800px) {
@@ -813,6 +697,7 @@ textarea:focus {
     border: 1px solid rgba(255, 255, 255, 0.08);
     padding: 0.6rem 0.9rem;
     min-width: 190px;
+    max-width: 90vw;
     box-shadow: var(--shadow-soft);
     opacity: 0;
     transform: translateY(-4px);
@@ -834,8 +719,28 @@ textarea:focus {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  /* Hide scroll cue on mobile – you said it looked odd */
+  /* Hide scroll cue on mobile */
   .scroll-cue {
     display: none;
+  }
+
+  .contact-section {
+    padding-inline: 1.5rem;
+  }
+
+  .contact-map-card {
+    border-radius: 16px;
+  }
+}
+
+@media (max-width: 400px) {
+  .nav-links {
+    left: 0;
+    right: 0;
+    margin-inline: 1rem;
+  }
+
+  .contact-map {
+    height: 260px;
   }
 }
