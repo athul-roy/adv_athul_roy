@@ -1,0 +1,10 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Roy;Athul;;Adv.;
+FN:Advocate Athul Roy
+ORG:High Court of Kerala;
+TITLE:Advocate
+TEL;TYPE=CELL,VOICE:+919061430452
+EMAIL;TYPE=WORK:adv.athulroy@example.com
+ADR;TYPE=WORK:;;Near High Court of Kerala;Kochi;Kerala;;India
+END:VCARD
