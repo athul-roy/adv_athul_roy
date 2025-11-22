@@ -744,3 +744,31 @@ p {
     height: 260px;
   }
 }
+
+/* Cleaner transition + shadow when visible */
+.site-header {
+  transition: transform 0.3s ease-out,
+              background 0.25s ease-out,
+              box-shadow 0.25s ease-out;
+}
+
+.site-header.header-visible {
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.35);
+}
+
+/* Subtitle fade transition */
+.brand-sub {
+  transition: opacity 0.35s ease-out;
+}
+
+/* Larger mobile hamburger tap target */
+.nav-toggle {
+  padding: 0.55rem 0.9rem;
+}
+
+/* Minor enhancement for smooth brand shrink */
+.brand-name {
+  transition: font-size 0.25s ease-out,
+              letter-spacing 0.25s ease-out,
+              opacity 0.25s ease-out;
+}
