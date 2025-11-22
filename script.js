@@ -1,6 +1,19 @@
-// Always start at top (avoid refresh jump)
-if ("scrollRestoration" in history) history.scrollRestoration = "manual";
-window.scrollTo(0, 0);
+/* -------------------------------------------------
+   FORCE SCROLL TO TOP WHEN PAGE LOADS / RELOADS
+-------------------------------------------------- */
+if ("scrollRestoration" in history) {
+  history.scrollRestoration = "manual";
+}
+
+window.addEventListener("beforeunload", () => {
+  window.scrollTo(0, 0);
+});
+
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, 50);
+});
 
 // Year in footer
 const yearSpan = document.getElementById("year");
@@ -62,7 +75,6 @@ const highlightNav = () => {
     const top = section.offsetTop;
     const height = section.offsetHeight;
     const id = section.getAttribute("id");
-
     if (scrollPos >= top && scrollPos < top + height) {
       navItems.forEach((l) => l.classList.remove("active"));
       const activeLink = document.querySelector(`.nav-links a[href="#${id}"]`);
@@ -96,8 +108,6 @@ const handleScroll = () => {
     if (scrollingDown && y > 60) {
       upScrollDistance = 0;
       header.style.transform = "translateY(-100%)";
-
-      // auto close mobile menu
       if (navLinks?.classList.contains("nav-open")) {
         navLinks.classList.remove("nav-open");
         navToggle?.setAttribute("aria-expanded", "false");
@@ -114,7 +124,7 @@ const handleScroll = () => {
     }
   }
 
-  // Restore full header near top
+  // Restore full branding
   if (y <= 60) {
     header.style.transform = "translateY(0)";
     brandName.textContent = "Advocate Athul Roy";
@@ -126,8 +136,8 @@ const handleScroll = () => {
   // Shadow effect
   header.classList.toggle("scrolled", y > 60);
 
-  // WhatsApp fade behavior
-  if (whatsappBtn) {
+  // Fade WhatsApp on desktop scroll
+  if (whatsappBtn && window.innerWidth > 900) {
     if (scrollingDown && y > 140) {
       whatsappBtn.style.opacity = "0";
       whatsappBtn.style.pointerEvents = "none";
@@ -163,17 +173,13 @@ if (portraitWrap && window.matchMedia("(pointer:fine)").matches) {
 // Lazy-load Google Map
 const contactMap = document.querySelector(".contact-map");
 if (contactMap && contactMap.dataset.mapSrc) {
-  if ("IntersectionObserver" in window) {
-    const mapObserver = new IntersectionObserver((entries, observer) => {
-      if (entries[0].isIntersecting) {
-        contactMap.src = contactMap.dataset.mapSrc;
-        observer.disconnect();
-      }
-    }, { threshold: 0.2 });
-    mapObserver.observe(contactMap);
-  } else {
-    contactMap.src = contactMap.dataset.mapSrc;
-  }
+  const mapObserver = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) {
+      contactMap.src = contactMap.dataset.mapSrc;
+      mapObserver.disconnect();
+    }
+  }, { threshold: 0.2 });
+  mapObserver.observe(contactMap);
 }
 
 // Scroll To Top Button + Cinematic Hero Fade
@@ -185,23 +191,12 @@ scrollTopBtn.addEventListener("click", () =>
   window.scrollTo({ top: 0, behavior: "smooth" })
 );
 
+// Trigger fade-in only once on scroll
 window.addEventListener("scroll", () => {
   const y = window.scrollY;
+  scrollTopBtn.classList.toggle("visible", y > 300);
 
-  // Show / hide scroll-to-top button
-  if (y > 300) {
-    scrollTopBtn.classList.add("visible");
-  } else {
-    scrollTopBtn.classList.remove("visible");
-  }
-
-  // Hero fade only once
   if (heroInner && !heroInner.classList.contains("hero-visible") && y > 10) {
     heroInner.classList.add("hero-visible");
   }
 });
-
-// Instant fade on load if user refreshed mid scroll
-if (heroInner && window.scrollY > 10) {
-  heroInner.classList.add("hero-visible");
-}
