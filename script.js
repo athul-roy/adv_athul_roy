@@ -13,6 +13,11 @@ window.addEventListener("load", () => {
   setTimeout(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
   }, 50);
+
+  // <<< FIXED: Make hero visible immediately on load!
+  if (document.querySelector(".hero-inner")) {
+    document.querySelector(".hero-inner").classList.add("hero-visible");
+  }
 });
 
 // Year in footer
@@ -57,15 +62,15 @@ if ("IntersectionObserver" in window) {
   revealEls.forEach((el) => el.classList.add("reveal-visible"));
 }
 
-// Performance-based animation fallback
+// Performance check
 const isLowEndDevice = navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4;
 
-// Smart scrolling behavior
+// Smart scroll behavior
 let lastScrollY = window.scrollY;
 const SCROLL_THRESHOLD = 50;
 let upScrollDistance = 0;
 
-// Highlight active section in nav
+// Highlight active nav links
 const sections = document.querySelectorAll("section[id]");
 const navItems = document.querySelectorAll(".nav-links a");
 
@@ -89,13 +94,13 @@ const handleScroll = () => {
   const scrollingDown = y > lastScrollY;
   const isCompact = window.innerWidth <= 900;
 
-  // Scroll progress bar fill
+  // Scroll progress
   if (scrollBar) {
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     scrollBar.style.width = `${(y / docHeight) * 100}%`;
   }
 
-  // Parallax disabled on low-end
+  // Parallax
   if (!isLowEndDevice) {
     if (bgMain) bgMain.style.transform = `translateY(${y * -0.1}px) scale(1.03)`;
     if (bgGold) bgGold.style.transform = `translateY(${y * -0.16}px) translateX(${y * 0.03}px)`;
@@ -103,7 +108,7 @@ const handleScroll = () => {
     if (stripImg) stripImg.style.transform = `translateY(${y * -0.06}px)`;
   }
 
-  // Mobile smart hide header
+  // Mobile smart hide
   if (isCompact) {
     if (scrollingDown && y > 60) {
       upScrollDistance = 0;
@@ -124,7 +129,7 @@ const handleScroll = () => {
     }
   }
 
-  // Restore full branding
+  // Restore when near top
   if (y <= 60) {
     header.style.transform = "translateY(0)";
     brandName.textContent = "Advocate Athul Roy";
@@ -133,10 +138,10 @@ const handleScroll = () => {
     navToggle.style.pointerEvents = "auto";
   }
 
-  // Shadow effect
+  // Header shadow
   header.classList.toggle("scrolled", y > 60);
 
-  // Fade WhatsApp on desktop scroll
+  // Desktop WhatsApp fade
   if (whatsappBtn && window.innerWidth > 900) {
     if (scrollingDown && y > 140) {
       whatsappBtn.style.opacity = "0";
@@ -154,14 +159,14 @@ window.addEventListener("scroll", handleScroll, { passive: true });
 window.addEventListener("scroll", highlightNav);
 window.addEventListener("load", highlightNav);
 
-// WhatsApp -> scroll to contact
+// WhatsApp → Scroll to Contact
 if (whatsappBtn) {
   whatsappBtn.addEventListener("click", () => {
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   });
 }
 
-// Desktop portrait tilt
+// Portrait tilt
 if (portraitWrap && window.matchMedia("(pointer:fine)").matches) {
   window.addEventListener("mousemove", (e) => {
     const x = (e.clientX / window.innerWidth - 0.5) * 18;
@@ -170,7 +175,7 @@ if (portraitWrap && window.matchMedia("(pointer:fine)").matches) {
   });
 }
 
-// Lazy-load Google Map
+// Lazy-load Map
 const contactMap = document.querySelector(".contact-map");
 if (contactMap && contactMap.dataset.mapSrc) {
   const mapObserver = new IntersectionObserver(entries => {
@@ -182,21 +187,13 @@ if (contactMap && contactMap.dataset.mapSrc) {
   mapObserver.observe(contactMap);
 }
 
-// Scroll To Top Button + Cinematic Hero Fade
+// Scroll to Top Btn
 const scrollTopBtn = document.getElementById("scrollTopBtn");
-const heroInner = document.querySelector(".hero-inner");
-
-// Smooth scroll to top
 scrollTopBtn.addEventListener("click", () =>
   window.scrollTo({ top: 0, behavior: "smooth" })
 );
 
-// Trigger fade-in only once on scroll
 window.addEventListener("scroll", () => {
   const y = window.scrollY;
   scrollTopBtn.classList.toggle("visible", y > 300);
-
-  if (heroInner && !heroInner.classList.contains("hero-visible") && y > 10) {
-    heroInner.classList.add("hero-visible");
-  }
 });
