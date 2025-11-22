@@ -28,6 +28,7 @@
     <div class="container header-inner">
       <div class="brand">
         <div class="brand-text">
+          <!-- This text shrinks on scroll; on mobile it becomes just "Athul Roy" -->
           <span class="brand-name">Advocate Athul Roy</span>
           <span class="brand-sub">High Court Advocate — Kochi, Kerala</span>
         </div>
@@ -46,9 +47,9 @@
   </header>
 
   <main>
-    <!-- HERO: cinematic, portrait right, text left -->
+    <!-- HERO: cinematic, text left (desktop), photo right; on mobile: photo first -->
     <section id="hero" class="hero">
-      <!-- layered background -->
+      <!-- layered animated background -->
       <div class="hero-layer hero-bg-main"></div>
       <div class="hero-layer hero-bg-vignette"></div>
       <div class="hero-layer hero-bg-gold"></div>
@@ -57,23 +58,21 @@
       <div class="container hero-inner">
         <!-- LEFT: minimal copy -->
         <div class="hero-copy">
-          <p class="hero-kicker">High Court Advocate — Kochi, Kerala</p>
           <h1 class="hero-heading-main">Advocate Athul Roy</h1>
-          <p class="hero-heading-sub">
-            High Court Advocate — Kochi, Kerala
-          </p>
+          <p class="hero-heading-sub">High Court Advocate — Kochi, Kerala</p>
           <p class="hero-placeholder">
-            This text is placeholder and can be replaced with a short, factual one–line
-            description of Advocate Athul Roy’s High Court practice in Kochi, Kerala.
+            This is placeholder text. Later, you can replace it with a clear, concise line
+            describing Advocate Athul Roy’s real High Court practice in Kochi, Kerala.
           </p>
 
+          <!-- Desktop-only scroll cue -->
           <div class="scroll-cue">
             <span class="scroll-line"></span>
             <span class="scroll-text">Scroll to learn more</span>
           </div>
         </div>
 
-        <!-- RIGHT: portrait cut-out -->
+        <!-- RIGHT: portrait cut-out (goes first on mobile) -->
         <div class="hero-visual">
           <div class="hero-portrait-wrap">
             <div class="hero-portrait-glow"></div>
@@ -90,21 +89,21 @@
     <!-- FIRST SCROLL SECTION: tagline + CTAs -->
     <section id="intro" class="section section-intro reveal">
       <div class="container narrow">
-        <h2>High Court Advocate — Kochi, Kerala</h2>
+        <h2>About This Placeholder Website</h2>
         <p>
-          All of the information on this page is placeholder. Later, it can be replaced
+          All of the information on this website is placeholder. Later, it can be replaced
           with accurate details about Advocate Athul Roy’s experience, High Court work,
           and preferred areas of practice in Kochi, Kerala.
         </p>
 
         <!-- CTA row (Call / WhatsApp / LinkedIn) -->
         <div class="cta-row">
-          <a href="tel:+910000000000" class="cta-pill cta-primary">
+          <a href="tel:+919061430452" class="cta-pill cta-primary">
             <span class="cta-icon">📞</span>
             <span>Call (Placeholder)</span>
           </a>
           <a
-            href="https://wa.me/910000000000?text=Hello%20Advocate%20Athul%20Roy%2C%20I%20would%20like%20to%20enquire%20about%20a%20matter."
+            href="https://wa.me/919061430452?text=Hello%20Advocate%20Athul%20Roy%2C%20I%20would%20like%20to%20enquire%20about%20a%20matter."
             class="cta-pill"
             target="_blank"
             rel="noopener noreferrer"
@@ -131,7 +130,7 @@
       <img src="images/books.jpg" alt="Law books (placeholder)" class="strip-image" />
       <div class="container strip-content reveal">
         <p>
-          All information on this website is placeholder and will be replaced with accurate
+          All information on this website is temporary and will be replaced with accurate
           details about Advocate Athul Roy, his practice, and his areas of focus.
         </p>
       </div>
@@ -203,8 +202,8 @@
 
           <div class="contact-details">
             <h3>Contact Details (Placeholder)</h3>
-            <p><strong>Phone:</strong> +91 00000 00000</p>
-            <p><strong>Email:</strong> example@example.com</p>
+            <p><strong>Phone:</strong> +91 9061430452</p>
+            <p><strong>Email:</strong> athulroy@example.com</p>
             <p><strong>Location:</strong> Kochi, Kerala, India</p>
           </div>
         </div>
@@ -220,7 +219,7 @@
   </footer>
 
   <script>
-    // Start always at top (fix refresh jumping to contact)
+    // Always start at top (fix "refresh = contact" issue)
     if ('scrollRestoration' in history) {
       history.scrollRestoration = 'manual';
     }
@@ -239,7 +238,7 @@
       });
     }
 
-    // Smooth reveal on scroll
+    // Reveal on scroll
     const revealEls = document.querySelectorAll('.reveal');
     const io = new IntersectionObserver(
       entries => {
@@ -254,17 +253,20 @@
     );
     revealEls.forEach(el => io.observe(el));
 
-    // Parallax + motion
-    const hero = document.querySelector('.hero');
+    // Parallax & hero motion
     const bgMain = document.querySelector('.hero-bg-main');
     const bgGold = document.querySelector('.hero-bg-gold');
     const bgParticles = document.querySelector('.hero-bg-particles');
     const stripImg = document.querySelector('.strip-image');
     const portraitWrap = document.querySelector('.hero-portrait-wrap');
+    const header = document.querySelector('.site-header');
+    const brandName = document.querySelector('.brand-name');
+    const brandSub = document.querySelector('.brand-sub');
 
     window.addEventListener('scroll', () => {
       const y = window.scrollY || window.pageYOffset;
 
+      // Parallax
       if (bgMain) {
         bgMain.style.transform = `translateY(${y * -0.12}px) scale(1.05)`;
       }
@@ -277,12 +279,29 @@
       if (stripImg) {
         stripImg.style.transform = `translateY(${y * -0.06}px)`;
       }
+
+      // Header shrink on scroll
+      if (header && brandName) {
+        if (y > 60) {
+          header.classList.add('header-scrolled');
+          if (window.innerWidth <= 700) {
+            // mobile: show only small "Athul Roy"
+            brandName.textContent = 'Athul Roy';
+            if (brandSub) brandSub.style.opacity = '0';
+          }
+        } else {
+          header.classList.remove('header-scrolled');
+          // reset text on top
+          brandName.textContent = 'Advocate Athul Roy';
+          if (brandSub) brandSub.style.opacity = '1';
+        }
+      }
     });
 
-    // Mouse-based 3D-ish tilt for portrait (desktop only)
+    // Desktop-only tilt for portrait
     if (window.matchMedia('(pointer:fine)').matches && portraitWrap) {
       window.addEventListener('mousemove', e => {
-        const x = (e.clientX / window.innerWidth - 0.5) * 16; // stronger motion (high)
+        const x = (e.clientX / window.innerWidth - 0.5) * 18;
         const y = (e.clientY / window.innerHeight - 0.5) * 12;
         portraitWrap.style.transform = `translate3d(${x}px, ${y}px, 0)`;
       });

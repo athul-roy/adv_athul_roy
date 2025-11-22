@@ -39,7 +39,7 @@ body {
   color: var(--text-main);
 }
 
-/* Layout helpers */
+/* Layout */
 
 .container {
   width: 100%;
@@ -95,7 +95,7 @@ p {
   margin-bottom: 1.75rem;
 }
 
-/* HEADER */
+/* Header */
 
 .site-header {
   position: fixed;
@@ -106,6 +106,9 @@ p {
   background: rgba(2, 3, 3, 0.96);
   border-bottom: 1px solid rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(14px);
+  padding-top: env(safe-area-inset-top);
+  transition: padding 0.25s ease-out, background 0.25s ease-out,
+    transform 0.25s ease-out;
 }
 
 .header-inner {
@@ -113,6 +116,11 @@ p {
   align-items: center;
   justify-content: space-between;
   padding: 0.6rem 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
 }
 
 .brand-text {
@@ -126,11 +134,25 @@ p {
   font-size: 1rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+  transition: font-size 0.25s ease-out, letter-spacing 0.25s ease-out;
 }
 
 .brand-sub {
   font-size: 0.78rem;
   color: var(--text-muted);
+  transition: opacity 0.25s ease-out;
+}
+
+/* Header when scrolled */
+
+.header-scrolled {
+  background: rgba(2, 3, 3, 0.98);
+  transform: translateY(0);
+}
+
+.header-scrolled .brand-name {
+  font-size: 0.85rem;
+  letter-spacing: 0.16em;
 }
 
 /* Nav */
@@ -267,14 +289,6 @@ p {
   max-width: 480px;
 }
 
-.hero-kicker {
-  font-size: 0.78rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  margin-bottom: 0.4rem;
-}
-
 .hero-heading-main {
   font-size: 2.2rem;
   letter-spacing: 0.16em;
@@ -292,7 +306,7 @@ p {
   margin-top: 1rem;
 }
 
-/* Scroll cue */
+/* scroll cue (hidden on mobile later) */
 
 .scroll-cue {
   margin-top: 2.2rem;
@@ -317,7 +331,7 @@ p {
   color: var(--text-muted);
 }
 
-/* HERO portrait (right) */
+/* HERO portrait (right on desktop) */
 
 .hero-visual {
   display: flex;
@@ -356,7 +370,8 @@ p {
   transition: transform 0.6s ease-out;
 }
 
-/* fade bottom edge so it blends into background */
+/* fade bottom into background */
+
 .hero-portrait-wrap::after {
   content: "";
   position: absolute;
@@ -372,7 +387,7 @@ p {
   transform: scale(1.06);
 }
 
-/* INTRO & CTAs */
+/* INTRO & CTA row */
 
 .section-intro h2 {
   text-transform: none;
@@ -454,7 +469,7 @@ p {
   align-items: center;
 }
 
-/* PRACTICE CARDS */
+/* Practice cards */
 
 .grid {
   display: grid;
@@ -606,7 +621,7 @@ textarea:focus {
   transform: translateY(0) scale(1);
 }
 
-/* Animations */
+/* Keyframe animations */
 
 @keyframes goldSweep {
   0% {
@@ -647,10 +662,16 @@ textarea:focus {
 
   .hero-visual {
     justify-content: center;
+    order: -1; /* portrait first on mobile */
   }
 
   .hero-copy {
     max-width: 100%;
+    text-align: center;
+  }
+
+  .scroll-cue {
+    align-items: center;
   }
 
   .hero {
@@ -671,11 +692,11 @@ textarea:focus {
 
 @media (max-width: 700px) {
   main {
-    padding-top: 3.8rem;
+    padding-top: calc(3.6rem + env(safe-area-inset-top));
   }
 
   .header-inner {
-    padding: 0.5rem 0;
+    padding: 0.45rem 0;
   }
 
   .nav-toggle {
@@ -713,7 +734,12 @@ textarea:focus {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  h1.hero-heading-main {
+  .hero-heading-main {
     font-size: 1.8rem;
+  }
+
+  /* Hide scroll cue on mobile (you said it looks odd) */
+  .scroll-cue {
+    display: none;
   }
 }
