@@ -100,13 +100,15 @@ const handleScroll = () => {
     scrollBar.style.width = `${(y / docHeight) * 100}%`;
   }
 
-  // Parallax
+  // Parallax - COMMENTED OUT FOR LIGHT THEME/STATIC BACKGROUND
+  /*
   if (!isLowEndDevice) {
     if (bgMain) bgMain.style.transform = `translateY(${y * -0.1}px) scale(1.03)`;
     if (bgGold) bgGold.style.transform = `translateY(${y * -0.16}px) translateX(${y * 0.03}px)`;
     if (bgParticles) bgParticles.style.transform = `translateY(${y * -0.05}px)`;
     if (stripImg) stripImg.style.transform = `translateY(${y * -0.06}px)`;
   }
+  */
 
   // Mobile smart hide
   if (isCompact) {
@@ -123,8 +125,11 @@ const handleScroll = () => {
         header.style.transform = "translateY(0)";
         brandName.textContent = "Adv. Athul Roy";
         brandSub.style.opacity = "0";
-        navToggle.style.opacity = "0";
-        navToggle.style.pointerEvents = "none";
+        // Hide nav toggle only if menu is closed for a cleaner header
+        if (!navLinks?.classList.contains("nav-open")) {
+          navToggle.style.opacity = "0";
+          navToggle.style.pointerEvents = "none";
+        }
       }
     }
   }
@@ -196,4 +201,9 @@ scrollTopBtn.addEventListener("click", () =>
 window.addEventListener("scroll", () => {
   const y = window.scrollY;
   scrollTopBtn.classList.toggle("visible", y > 300);
+});
+
+// Premium: fade-in header on first load
+window.addEventListener("load", () => {
+  if (header) header.classList.add("header-visible");
 });
