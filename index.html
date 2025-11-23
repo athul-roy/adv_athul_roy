@@ -2,429 +2,227 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Advocate Athul Roy | High Court Legal Counsel</title>
+  <meta name="description" content="Expert legal representation by Advocate Athul Roy at the High Court of Kerala. Specializing in Civil, Commercial, and Writ Jurisdiction." />
+  <meta name="theme-color" content="#F9F8F4" />
 
-  <title>Advocate Athul Roy — High Court Advocate, Kochi</title>
-
-  <meta
-    name="description"
-    content="Website for Advocate Athul Roy, a High Court Advocate practicing in Kochi, Kerala. All details are placeholders and can be replaced with accurate information later."
-  />
-  <meta name="robots" content="index,follow" />
-  <meta name="theme-color" content="#07060A" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="styles.css" />
-
-  <!-- Schema.org placeholder (update url/image/phone when you go live) -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Attorney",
-      "name": "Advocate Athul Roy",
-      "areaServed": "Kerala, India",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Kochi",
-        "addressRegion": "Kerala",
-        "addressCountry": "India"
-      },
-      "availableService": [
-        "Civil Litigation",
-        "Commercial Litigation",
-        "Writ Petitions",
-        "Arbitration & ADR"
-      ],
-      "url": "https://example.com",
-      "telephone": "+91 90614 30452"
-    }
-  </script>
 </head>
-<body>
-  <!-- Scroll progress bar -->
-  <div class="scroll-progress">
-    <div class="scroll-progress-bar"></div>
+<body class="loading-state">
+
+  <div id="preloader">
+    <div class="gavel-wrapper">
+      <svg class="gavel-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 13l-7.5 7.5c-.83.83-2.17.83-3 0 0 0 0 0 0 0a2.12 2.12 0 0 1 0-3L11 10"/>
+        <path d="M16 16l6-6"/>
+        <path d="M8 8l6-6"/>
+        <path d="M9 7l8 8"/>
+        <path d="M21 11l-8-8"/>
+      </svg>
+    </div>
+    <div class="loading-content">
+      <div class="loading-name">Adv. Athul Roy</div>
+      <div id="quote-display" class="quote-text"></div> 
+    </div>
   </div>
 
-  <!-- Header -->
+  <div class="scroll-tracker">
+    <div class="scroll-bar"></div>
+  </div>
+
   <header class="site-header">
     <div class="container header-inner">
-      <div class="brand">
-        <div class="brand-text">
-          <span class="brand-name">Advocate Athul Roy</span>
-          <span class="brand-sub">High Court Advocate — Kochi, Kerala</span>
-        </div>
-      </div>
+      <a href="#" class="brand">
+        <span class="brand-name">Advocate Athul Roy</span>
+        <span class="brand-sub">High Court of Kerala</span>
+      </a>
 
-      <nav class="nav" aria-label="Main navigation">
-        <button
-          class="nav-toggle"
-          aria-label="Toggle navigation menu"
-          aria-expanded="false"
-          aria-controls="primary-navigation"
-        >
-          ☰
-        </button>
-        <ul class="nav-links" id="primary-navigation">
-          <li><a href="#hero">Home</a></li>
-          <li><a href="#intro">Overview</a></li>
-          <li><a href="#practice">Practice Areas</a></li>
-          <li><a href="#about">Profile</a></li>
-          <li><a href="#articles">Articles</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
+      <button class="menu-toggle" aria-label="Toggle Menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <nav class="nav-menu">
+        <a href="#hero" class="nav-link">Home</a>
+        <a href="#about" class="nav-link">Profile</a>
+        <a href="#expertise" class="nav-link">Expertise</a>
+        <a href="#contact" class="nav-link btn-contact">Contact Us</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <!-- HERO -->
     <section id="hero" class="hero">
-      <!-- layered animated background -->
-      <div class="hero-layer hero-bg-main" aria-hidden="true"></div>
-      <div class="hero-layer hero-bg-vignette" aria-hidden="true"></div>
-      <div class="hero-layer hero-bg-gold" aria-hidden="true"></div>
-      <div class="hero-layer hero-bg-particles" aria-hidden="true"></div>
+      <div class="hero-bg parallax" data-speed="0.5"></div>
+      <div class="hero-overlay"></div>
+      
+      <div class="container hero-content">
+        <p class="hero-eyebrow reveal">Legal Counsel • Kochi</p>
+        <h1 class="hero-title reveal delay-1">
+          Justice Served with <br>
+          <span class="text-gold">Unwavering Integrity</span>
+        </h1>
+        <p class="hero-desc reveal delay-2">
+          Providing strategic advocacy in Civil, Commercial, and Constitutional matters before the High Court of Kerala.
+        </p>
+        <div class="hero-actions reveal delay-3">
+          <a href="#contact" class="btn btn-gold">Schedule Consultation</a>
+          <a href="#expertise" class="btn btn-outline">Practice Areas</a>
+        </div>
+      </div>
+      
+      <div class="scroll-down">
+        <span>Scroll</span>
+        <div class="line"></div>
+      </div>
+    </section>
 
-      <div class="container hero-inner">
-        <!-- LEFT: copy -->
-        <div class="hero-copy">
-          <h1 class="hero-heading-main">Adv. Athul Roy</h1>
-          <p class="hero-heading-sub">High Court Advocate — Kochi, Kerala</p>
-          <p class="hero-placeholder">
-            Advocate Athul Roy is a High Court practitioner based in Kochi, Kerala. This is
-            placeholder text and can be replaced later with a short, factual description of
-            his practice.
+    <section class="intro-strip">
+      <div class="quote-box reveal">
+        <p>"The essence of law is not logic, but experience."</p>
+      </div>
+    </section>
+
+    <section id="about" class="section-profile">
+      <div class="container split-layout">
+        <div class="visual-col reveal-left">
+          <div class="image-frame">
+            <img src="images/athul-roy.jpg" alt="Advocate Athul Roy Portrait" class="profile-img">
+            <div class="frame-border"></div>
+          </div>
+        </div>
+        
+        <div class="content-col reveal-right">
+          <span class="section-tag">About The Counsel</span>
+          <h2 class="section-title">Adv. Athul Roy</h2>
+          <p class="lead">
+            A distinguished practitioner at the High Court of Kerala, dedicated to upholding the highest standards of legal advocacy.
           </p>
+          <p>
+            With years of experience navigating complex legal landscapes, Adv. Athul Roy specializes in providing clear, actionable advice. Whether dealing with intricate commercial disputes or sensitive writ petitions, the approach is always client-centric.
+          </p>
+          
+          <ul class="credentials-list">
+            <li><span>⚖️</span> Civil & Commercial Litigation</li>
+            <li><span>📜</span> Writ Jurisdiction</li>
+            <li><span>🏛️</span> Arbitration & Dispute Resolution</li>
+          </ul>
 
-          <!-- Gold scroll arrow -->
-          <div class="scroll-arrow" aria-hidden="true">
-            <span class="arrow-down"></span>
-            <span class="scroll-label">Scroll</span>
-          </div>
-        </div>
-
-        <!-- RIGHT: portrait -->
-        <div class="hero-visual">
-          <div class="hero-portrait-wrap">
-            <div class="hero-portrait-glow" aria-hidden="true"></div>
-            <img
-              src="images/athul-roy.jpg"
-              alt="Portrait placeholder for Advocate Athul Roy"
-              class="hero-portrait"
-              loading="lazy"
-              decoding="async"
-              width="280"
-              height="373"
-            />
-          </div>
+          <a href="assets/contact.vcf" class="link-gold">Download Professional V-Card →</a>
         </div>
       </div>
     </section>
 
-    <!-- OVERVIEW + CTAs -->
-    <section id="intro" class="section section-light reveal">
-      <div class="container narrow">
-        <h2>Overview</h2>
-        <p>
-          Advocate Athul Roy is a Kochi-based lawyer practicing before the Hon’ble High Court
-          of Kerala. His areas of practice include civil and commercial litigation, writ
-          jurisdiction, arbitration and legal advisory services. He is committed to delivering
-          strategic and result-oriented legal solutions with professionalism, confidentiality
-          and client-focused representation. (Placeholder)
-        </p>
-
-        <div class="cta-row">
-          <a href="tel:+919061430452" class="cta-pill cta-primary">
-            <span class="cta-icon" aria-hidden="true">📞</span>
-            <span>Call Adv. Athul Roy</span>
-          </a>
-          <a
-            href="https://wa.me/919061430452?text=Hello%20Advocate%20Athul%20Roy%2C%20I%20would%20like%20to%20enquire%20about%20a%20matter."
-            class="cta-pill"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span class="cta-icon" aria-hidden="true">🟢</span>
-            <span>WhatsApp</span>
-          </a>
-          <a
-            href="https://www.linkedin.com/in/placeholder"
-            class="cta-pill"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span class="cta-icon">in</span>
-            <span>LinkedIn</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- BOOK STRIP (parallax) -->
-    <section class="strip" aria-label="Placeholder image strip">
-      <div class="strip-overlay" aria-hidden="true"></div>
-      <img
-        src="images/books.jpg"
-        alt="Placeholder image of law books"
-        class="strip-image"
-        loading="lazy"
-        decoding="async"
-        width="1600"
-        height="210"
-      />
-      <div class="container strip-content reveal">
-        <p>
-          All details here are placeholders and can later be replaced with accurate
-          information about Advocate Athul Roy’s legal practice.
-        </p>
-      </div>
-    </section>
-
-    <!-- PRACTICE AREAS -->
-    <section id="practice" class="section section-cream reveal">
-      <div class="container narrow">
-        <h2>Practice Areas</h2>
-        <p class="section-intro">
-          The areas listed below are placeholders. Replace them with the actual categories
-          of work handled by Advocate Athul Roy.
-        </p>
-
-        <div class="grid">
-          <article class="card card-soft">
-            <h3>Civil &amp; Commercial Litigation</h3>
-            <p>
-              Representation in civil disputes, commercial matters, recovery suits, contract
-              enforcement, injunctions and specific performance actions before the High Court
-              and subordinate courts. (Placeholder)
-            </p>
-          </article>
-
-          <article class="card card-soft">
-            <h3>Writs &amp; Constitutional Matters</h3>
-            <p>
-              Filing and defending writ petitions involving administrative law, service
-              issues, education law, government orders and alleged violation of fundamental
-              rights. (Placeholder)
-            </p>
-          </article>
-
-          <article class="card card-soft">
-            <h3>Arbitration &amp; Alternative Dispute Resolution</h3>
-            <p>
-              Assistance in commercial arbitration, mediation and negotiation processes to
-              resolve disputes efficiently while safeguarding the client’s legal interests.
-              (Placeholder)
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT / PROFILE -->
-    <section id="about" class="section section-light reveal">
-      <div class="container narrow">
-        <h2>Profile</h2>
-        <p class="section-intro">
-          The following content is placeholder and can be replaced with Advocate Athul Roy’s
-          actual profile, education and professional background.
-        </p>
-
-        <div class="profile-layout">
-          <div class="profile-text">
-            <p>
-              Advocate Athul Roy is a High Court practitioner based in Kochi, Kerala. His
-              work involves representing clients in civil and commercial disputes, writ
-              matters and arbitration proceedings. He focuses on clear, practical solutions
-              and maintains a client-centric, detail-oriented approach to litigation and
-              advisory work. (Placeholder)
-            </p>
-            <p>
-              <strong>Practice Highlights (Placeholder):</strong><br />
-              • Appearance before the High Court of Kerala in writ and civil matters.<br />
-              • Experience with commercial disputes, contractual claims and recovery
-              actions.<br />
-              • Advisory role for individuals and businesses on compliance and risk
-              mitigation.
-            </p>
-          </div>
-
-          <div class="profile-meta">
-            <h3>Professional Snapshot</h3>
-            <ul>
-              <li><span>Primary Court:</span> High Court of Kerala</li>
-              <li><span>Location:</span> Kochi, Kerala</li>
-              <li><span>Practice Areas:</span> Civil, Commercial, Writs, Arbitration</li>
-              <li><span>Languages:</span> English, Malayalam</li>
-            </ul>
-            <a href="assets/advocate-athul-roy.vcf" class="btn-vcard" download>
-              Download Contact (V-Card)
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- TESTIMONIALS (PLACEHOLDER) -->
-    <section id="testimonials" class="section section-cream reveal">
-      <div class="container narrow">
-        <h2>Client Feedback (Placeholder)</h2>
-        <p class="section-intro">
-          The testimonials below are sample placeholders. Replace them with actual client
-          feedback as and when available, in compliance with applicable professional rules.
-        </p>
-
-        <div class="testimonials-grid">
-          <article class="testimonial-card">
-            <p class="testimonial-text">
-              “Professional, clear and responsive. I was kept informed at every stage and my
-              matter was handled with care.” (Placeholder)
-            </p>
-            <p class="testimonial-name">— Client (Placeholder)</p>
-          </article>
-
-          <article class="testimonial-card">
-            <p class="testimonial-text">
-              “Provided practical advice and realistic expectations. The case was prepared
-              thoroughly and argued effectively.” (Placeholder)
-            </p>
-            <p class="testimonial-name">— Business Client (Placeholder)</p>
-          </article>
-
-          <article class="testimonial-card">
-            <p class="testimonial-text">
-              “Approachable, detail-oriented and well-versed with High Court procedure.”
-              (Placeholder)
-            </p>
-            <p class="testimonial-name">— Client (Placeholder)</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ARTICLES / UPDATES -->
-    <section id="articles" class="section section-light reveal">
-      <div class="container narrow">
-        <h2>Articles &amp; Updates (Placeholder)</h2>
-        <p class="section-intro">
-          This section can later be used to publish short notes or updates on legal topics
-          such as High Court procedure, civil litigation, writ remedies and important
-          developments in law.
-        </p>
-
-        <div class="articles-grid">
-          <article class="article-card">
-            <h3>Understanding Writ Petitions before the High Court</h3>
-            <p>
-              A brief overview of when writ jurisdiction is typically invoked, common
-              grounds and general considerations from a litigant’s perspective. (Placeholder)
-            </p>
-            <a href="#" class="article-link">Read more (Placeholder)</a>
-          </article>
-
-          <article class="article-card">
-            <h3>Civil &amp; Commercial Disputes: Basic Concepts</h3>
-            <p>
-              Introductory notes on contractual disputes, recovery suits and injunction
-              applications commonly seen in civil and commercial litigation. (Placeholder)
-            </p>
-            <a href="#" class="article-link">Read more (Placeholder)</a>
-          </article>
-
-          <article class="article-card">
-            <h3>Arbitration and Alternative Dispute Resolution</h3>
-            <p>
-              A short explanation of how arbitration and mediation can assist in resolving
-              commercial disputes outside regular court proceedings. (Placeholder)
-            </p>
-            <a href="#" class="article-link">Read more (Placeholder)</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="contact-section">
+    <section id="expertise" class="section-expertise">
       <div class="container">
-        <h2 class="section-title">Contact</h2>
-        <p class="contact-subtitle">
-          For legal consultation and case representation before the Kerala High Court.
-        </p>
-
-        <div class="contact-map-card">
-          <iframe
-            class="contact-map"
-            title="Map location of Kerala High Court, Kochi"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            data-map-src="https://www.google.com/maps/embed/v1/place?key=AIzaSyC5-FAKE-KEY-FOR-NOW&q=High+Court+of+Kerala,Kochi,India"
-          ></iframe>
+        <div class="section-header center reveal">
+          <span class="section-tag">Our Expertise</span>
+          <h2 class="section-title">Areas of Practice</h2>
+          <div class="separator"></div>
         </div>
 
-        <div class="contact-details">
-          <div>
-            <h3>Office</h3>
-            <p>Near High Court of Kerala, Kochi — Ernakulam (Placeholder)</p>
+        <div class="cards-grid">
+          <div class="service-card reveal delay-1">
+            <div class="icon-box">⚖️</div>
+            <h3>Civil Litigation</h3>
+            <p>Comprehensive representation in property disputes, contract enforcement, and recovery suits.</p>
           </div>
-          <div>
-            <h3>Email</h3>
-            <p class="email-line">
-              <a href="mailto:adv.athulroy@example.com">adv.athulroy@gmail.com</a>
-            </p>
+
+          <div class="service-card reveal delay-2">
+            <div class="icon-box">📜</div>
+            <h3>Writ Petitions</h3>
+            <p>Expert handling of constitutional matters, administrative law, and service-related grievances.</p>
           </div>
-          <div>
-            <h3>Phone</h3>
-            <p class="phone-line">
-              <a href="tel:+919061430452">+91 90614 30452</a>
-            </p>
+
+          <div class="service-card reveal delay-3">
+            <div class="icon-box">🤝</div>
+            <h3>Commercial Law</h3>
+            <p>Strategic advisory for corporate entities, startups, and arbitration proceedings.</p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="banner-parallax">
+      <div class="banner-bg"></div>
+      <div class="container banner-content reveal">
+        <h2>"Integrity is the essence of everything successful."</h2>
+      </div>
+    </section>
+
+    <section id="contact" class="section-contact">
+      <div class="container">
+        <div class="contact-wrapper reveal-up">
+          
+          <div class="contact-info-panel">
+            <h3>Get in Touch</h3>
+            <p>Visit our chambers or contact us directly.</p>
+            
+            <div class="info-item">
+              <span class="label">Location</span>
+              <p>Near High Court of Kerala,<br>Ernakulam, Kochi - 682031</p>
+            </div>
+            
+            <div class="info-item">
+              <span class="label">Contact</span>
+              <p><a href="tel:+919061430452">+91 90614 30452</a></p>
+              <p><a href="mailto:adv.athulroy@gmail.com">adv.athulroy@gmail.com</a></p>
+            </div>
+          </div>
+
+          <div class="map-panel">
+             <div class="map-frame">
+               <iframe 
+                 title="High Court Location"
+                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.566832673248!2d76.2705!3d9.9894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080d5140b07e5d%3A0x7c7379766967732!2sHigh%20Court%20of%20Kerala!5e0!3m2!1sen!2sin!4v1625634821000!5m2!1sen!2sin" 
+                 width="100%" 
+                 height="100%" 
+                 style="border:0;" 
+                 allowfullscreen="" 
+                 loading="lazy">
+               </iframe>
+             </div>
+          </div>
+
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>
-        © <span id="year"></span> Advocate Athul Roy. All rights reserved.
-      </p>
+    <div class="container">
+      <p>© <span id="year"></span> Advocate Athul Roy. All Rights Reserved.</p>
     </div>
   </footer>
 
+  <div class="mobile-bottom-bar">
+    <a href="tel:+919061430452" class="bar-item">
+      <span class="icon">📞</span>
+      <span>Call</span>
+    </a>
+    <a href="mailto:adv.athulroy@gmail.com" class="bar-item">
+      <span class="icon">✉️</span>
+      <span>Email</span>
+    </a>
+    <a href="https://wa.me/919061430452" class="bar-item">
+      <span class="icon">💬</span>
+      <span>WhatsApp</span>
+    </a>
+  </div>
 
-  <script src="script.js" defer></script>
-<!-- Mobile contact bar -->
-<div class="mobile-contact-bar">
-  <a href="tel:+919061430452" class="mc-item">
-    <span>Call</span>
+  <a href="https://wa.me/919061430452" target="_blank" class="float-btn whatsapp" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2z"/></svg>
   </a>
-  <a
-    href="https://wa.me/919061430452?text=Hello%20Advocate%20Athul%20Roy"
-    class="mc-item"
-  >
-    <span>WhatsApp</span>
-  </a>
-  <a href="#contact" class="mc-item">
-    <span>Contact</span>
-  </a>
-</div>
-<!-- Scroll to Top Button -->
-<button id="scrollTopBtn" aria-label="Scroll to top">
-  <svg viewBox="0 0 24 24">
-    <path d="M12 4l-8 8h6v8h4v-8h6z" />
-  </svg>
-</button>
+
+  <button id="scrollToTop" class="float-btn scroll-top" aria-label="Scroll Top">↑</button>
+
+  <script src="script.js"></script>
 </body>
 </html>
